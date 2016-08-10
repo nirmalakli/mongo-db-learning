@@ -1,0 +1,9 @@
+show databases
+show collections
+use nirmal
+db.users.save({userName: "idnnrj"})
+db.users.find()
+db.users.find({userName: "idnnrj"})
+db.users.update({userName: "idnnrj"}, {$set : {experience : 10}})
+db.users.save({userName: "idnato", experience : 1})
+db.users.find({experience : {$gt : 5}})
