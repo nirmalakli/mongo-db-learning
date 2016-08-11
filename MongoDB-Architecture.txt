@@ -1,0 +1,31 @@
+CAP Theorem for distributed systems
+Choose 2 among:
+> Consistency : A 'read' should return the result of most recent 'write'.
+> Availability: No down times while 'read' or 'write'.
+> Partition Tolerance: System should survive and respond when a partition occurs (certain nodes become incommunicado)
+
+In a ds, data is inevitably partitioned across nodes. System should work even if some nodes are down.
+Hence partition tolerance ('P') is usually the most favoured feature of a ds.
+
+Some systems pick 'C' whereas others 'A'.
+
+
+CP systems:
+It prefers atomic 'read' or 'write'. In case of a partition, system prefers to 'time out' with an error.
+This results in consistent 'read'/'write'.
+'write' operations must be replicated to other nodes; thereby increasing 'write' performance.
+
+AP systems:
+It prefers flexibility. In case of a partition, system will accept a 'write' which will be processed later.
+Also 'read' may return stale data.
+
+Most RDBMS (on single node) are CA
+
+
+References:
+http://ksat.me/a-plain-english-introduction-to-cap-theorem
+
+Mongo DB favours 'A' and 'P'. It is eventually consistent.
+MongoDB has one master and several replicas. 'write' **always** goes to master while 'read' can go to
+any secondary. So there is a time window before secondary is synced with master. Hence 'read' from
+secondary may return stale data during this window.
