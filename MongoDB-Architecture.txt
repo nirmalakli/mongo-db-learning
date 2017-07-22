@@ -13,7 +13,7 @@ Some systems pick 'C' whereas others 'A'.
 CP systems:
 It prefers atomic 'read' or 'write'. In case of a partition, system prefers to 'time out' with an error.
 This results in consistent 'read'/'write'.
-'write' operations must be replicated to other nodes; thereby increasing 'write' performance.
+'write' operations must be replicated to other nodes; thereby decreasing 'write' performance.
 
 AP systems:
 It prefers flexibility. In case of a partition, system will accept a 'write' which will be processed later.
